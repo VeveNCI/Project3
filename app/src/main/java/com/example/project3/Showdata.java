@@ -29,7 +29,7 @@ public class Showdata extends AppCompatActivity {
     ListView listView;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
-    Button buttonUpdate, buttonDelete;
+    Button buttonUpdate, buttonDelete, buttonAdd;
     Module module;
 
     @Override
@@ -41,20 +41,16 @@ public class Showdata extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.txtListView);
         buttonUpdate = (Button)findViewById(R.id.buttonUpdate);
         buttonDelete = (Button)findViewById(R.id.buttonDelete);
+        buttonAdd = (Button)findViewById(R.id.buttonAdd);
         module = ((Module)getApplicationContext());
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                Books book = dataSnapshot.getValue(Books.class);
-                //Toast.makeText(Showdata.this, dataSnapshot.getKey(), Toast.LENGTH_LONG).show();
-                Toast.makeText(Showdata.this, book.getBookID(), Toast.LENGTH_LONG).show();
-                //System.out.println("key: " + dataSnapshot.getKey());
-                //System.out.println("ID: " + book.getBookID());
-                //System.out.println("Title: " + book.getBookTitle());
-                String txt = book.getBookID() + " . " + book.getBookTitle() + " - " + book.getBookAuthor() + " - " + book.getBookPages();
-                arrayList.add(txt);
+                    Books book = dataSnapshot.getValue(Books.class);
+                    String txt = book.getBookID() + " . " + book.getBookTitle() + " - " + book.getBookAuthor() + " - " + book.getBookPages();
+                    arrayList.add(txt);
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -118,6 +114,13 @@ public class Showdata extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), Showdata.class);
                     startActivity(intent);
                 }
+            }
+        });
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
     }

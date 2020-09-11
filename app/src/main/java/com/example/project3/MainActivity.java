@@ -65,11 +65,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter pages!", Toast.LENGTH_LONG).show();
         }else{
             //String id = databaseReference.push().getKey();
-            Books books = new Books(ID, Title, Author, Pages);
-            databaseReference.child(ID).child("id").setValue(ID.toString());
-            databaseReference.child(ID).child("title").setValue(Title.toString());
-            databaseReference.child(ID).child("author").setValue(Author.toString());
-            databaseReference.child(ID).child("pages").setValue(Pages.toString());
+            Books book = new Books(ID, Title, Author, Pages);
+            //databaseReference.child(ID).child("id").setValue(ID.toString());
+            //databaseReference.child(ID).child("title").setValue(Title.toString());
+            //databaseReference.child(ID).child("author").setValue(Author.toString());
+            //databaseReference.child(ID).child("pages").setValue(Pages.toString());
+            databaseReference.child(ID).setValue(book);
             Toast.makeText(this,"New book added!",Toast.LENGTH_LONG).show();
             txtClear();
         }

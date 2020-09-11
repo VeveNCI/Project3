@@ -36,24 +36,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="Email" />
+            android:hint="title" />
 
         <EditText
             android:id="@+id/tAuthor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Name" />
+            android:hint="author" />
 
         <EditText
             android:id="@+id/tPages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
-            android:hint="Password" />
+            android:hint="pages" />
 
         <Button
             android:id="@+id/buttonUpdate2"

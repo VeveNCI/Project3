@@ -99,9 +99,9 @@ public class Update extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     databaseReference = FirebaseDatabase.getInstance().getReference();
-                    databaseReference.child("Books").child(ID).child("title").setValue(Title);
-                    databaseReference.child("Books").child(ID).child("author").setValue(Author);
-                    databaseReference.child("Books").child(ID).child("pages").setValue(Author);
+                    databaseReference.child("Books").child(ID).child("bookTitle").setValue(Title);
+                    databaseReference.child("Books").child(ID).child("bookAuthor").setValue(Author);
+                    databaseReference.child("Books").child(ID).child("bookPages").setValue(Author);
                 }
 
                 @Override
